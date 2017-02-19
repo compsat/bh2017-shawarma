@@ -1,0 +1,75 @@
+app.config(
+  ['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function($stateProvider, $urlRouterProvider, $locationProvider) {
+  $stateProvider
+    .state('index', {
+      url: '/',
+      templateUrl: 'main/index.html',
+      controller: 'IndexController'
+    })
+    .state('nav', {
+      abstract: true,
+      templateUrl: 'shared/nav.html',
+      controller: 'NavController'
+    })
+    .state('sidebar', {
+      abstract: true,
+      templateUrl: 'shared/sidebar.html'
+    })
+    .state('sidebar.subnavbar', {
+        abstract: true,
+        views: {
+          'content': {
+            templateUrl: 'shared/subnavbar.html',
+            controller: 'SubNavbarController'
+          }
+        }
+      })
+    .state('sidebar.subnavbar.dashboard', {
+      url: '/dashboard',
+      views: {
+        'subcontent': {
+          templateUrl: 'main/dashboard.html',
+          controller: 'DashboardController'
+        }
+      }
+    })
+    .state('sidebar.subnavbar.scholarships', {
+      url: '/scholarships',
+      views: {
+        'subcontent': {
+          templateUrl: 'main/scholarships.html',
+          controller: 'ScholarshipsController'
+        }
+      }
+    })
+    .state('sidebar.subnavbar.apply', {
+      url: '/apply',
+      views: {
+        'subcontent': {
+          templateUrl: 'main/apply.html',
+          controller: 'ScholarshipsController'
+        }
+      }
+    })
+    .state('sidebar.subnavbar.show', {
+      url: '/apply/:id',
+      views: {
+        'subcontent': {
+          templateUrl: 'main/apply.html',
+          controller: 'ScholarshipsController'
+        }
+      }
+    })
+
+
+  $urlRouterProvider.otherwise('/');
+  $locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
+}]).run
+    ['$rootScope', '$state',
+    function($rootScope, $state) {
+    $rootScope.$state = $state;
+}];

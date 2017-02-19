@@ -1,0 +1,32 @@
+#scholarships
+  .container.add-margin-x
+    .row
+      .col-sm-3
+        .filter
+          .form-group.search
+            input.form-control.search-bar type="search" placeholder="Search Classes" ng-model="name"
+            i.line-icon.search-icon
+              | &#xe01f;
+          .add-padding-left
+            .filterBy
+              div ng-click="showTopics()"
+                h4 Locations
+                i.line-icon.pull-right
+                  | &#xe62a;
+              ul.no-padding ng-show="topics"
+                li ng-repeat="filter in topic_filters" ng-click="topicFilter(filter.value)"
+                  | {{filter.label}}
+      .col-sm-9
+        .card ng-repeat="card in scholarships | filter: {name: name}"
+          a ui-sref="sidebar.subnavbar.show({id: card._id})"
+            .event.b
+              .image
+                img.event-img ng-src="{{card.logo}}"
+              .details
+                h5.ellipsis
+                  | {{card.name}}
+                p.desc
+                  | {{card.description}}
+                p
+                button.apply ui-sref=".sidebar.subnavbar.apply" ng-disabled="checkDisable()"
+                  |  {{process}}

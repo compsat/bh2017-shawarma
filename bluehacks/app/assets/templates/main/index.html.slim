@@ -1,0 +1,126 @@
+section.background#index
+  div ng-include="'shared/nav.html'"
+
+  .container.tagline.home.center
+    h1
+      | Find the
+      |  right scholarship
+      |  for you
+    h3
+      | We believe everyone has the right to high quality education.
+
+
+/ section.bg-gray#featured_classes_section
+/   .container
+/     .row
+/         h2 Featured Classes
+/         .featured_classes.row
+/           .featured_class_container.col-md-3.col-sm-4 ng-repeat="featuredClass in featuredClasses"
+/             .featured_class
+/               img.class_img ng-src="{{featuredClass.image}}"
+/               .class_details
+/                 p.class_title.ellipsis
+/                   | {{featuredClass.title}}
+
+/ section.mentees#mentees
+/   .container
+/     .row
+/       .col-md-6.padding
+/         h2 This is a Platform for Students
+/         .instructions
+/           .steps
+/             h2 1
+/             p
+/               | Search for your desired scholarship and apply. 
+/           .steps
+/             h2 2
+/             p.row-space-top-4
+/               | Keep track of your scholarship requirements.
+/           .steps
+/             h2 3
+/             p.book
+/               | Monitor your application status.
+/       .col-md-5.col-md-offset-1.center.row-space-top-6
+/         = image_tag "student.png", :class => "mentee"
+
+section.testimonials
+  .container
+    .row
+      .col-md-3
+
+    h1 Testimonials
+    #testimonials.carousel.slide data-ride="carousel"
+      ol.carousel-indicators
+        li.active data-target="#testimonials" data-slide-to="0"
+        li data-target="#testimonials" data-slide-to="1"
+        li data-target="#testimonials" data-slide-to="2"
+        li data-target="#testimonials" data-slide-to="3"
+      .carousel-inner role="listbox"
+        .item.active
+          =image_tag "testi1.png"
+          .carousel-caption
+            h3
+              | "ScholarSpeed gave me the best opportunity of my life" — Beth
+        .item
+          =image_tag "testi2.png"
+          .carousel-caption
+            h3
+              | "I had a really easy time getting a scholarship" — Roger
+        .item
+          =image_tag "testi3.png"
+          .carousel-caption
+            h3
+              | "I didn't really consider scholarships till ScholarSpeed" — Greg
+        .item
+          =image_tag "testi4.jpg"
+          .carousel-caption
+            h3
+              | "My students really enjoy ScholarSpeed" — Miss Anne
+              
+      a.left.carousel-control href="#testimonials" role="button" data-slide="prev"
+        span.glyphicon.glyphicon-chevron-left aria-hidden="true"
+        span.sr-only
+          | Previous
+      a.right.carousel-control href="#testimonials" role="button" data-slide="next"
+        span.glyphicon.glyphicon-chevron-right aria-hidden="true"
+        span.sr-only
+          | Next
+      
+      
+
+
+section.bg-gray#what
+  .container
+    .features.col-md-4.col-sm-12
+      =image_tag "gradcap.png"
+      h3 Scholarships at your fingertips
+      p We make it easy for you to search and apply for your desired scholarship.
+    .features.col-md-4.col-sm-12
+      =image_tag "pencil.png"
+      h3 Keep Up With Requirements
+      p Stay organized by using our convenient requirement tracker. 
+    .features.col-md-4.col-sm-12
+      =image_tag "imac.png"
+      h3 Monitor Your Application
+      p Our web app allows you to keep track of your application status so you know never have to panic!
+
+section#footer.bg-orange
+  .container
+    .row.row-space-top-6
+      .col-md-6.center
+        =image_tag "logobig.png", :class => "lrn-img"
+      .col-md-6
+        h1.uppercase Get in Touch
+        ul
+          li
+            i.fa.fa-envelope-o aria-hidden="true"
+            | academe@gmail.com
+          li
+            i.fa.fa-facebook-square aria-hidden="true"
+            | facebook.com/academe
+          li
+            i.fa.fa-phone aria-hidden="true"
+            | +63 915 458 7029
+          li
+            i.fa.fa-map-marker aria-hidden="true"
+            | SOM 402, Ateneo de Manila University
